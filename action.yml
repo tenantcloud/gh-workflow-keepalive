@@ -17,6 +17,7 @@ runs:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
       shell: sh
       run: |
+        GITHUB_WORKFLOW_REF="something/unexpected/.github/workflows/template-sync.yml@refs"
         case "${GITHUB_WORKFLOW_REF:?}" in
           "${GITHUB_REPOSITORY:?}"/.github/workflows/*.y*ml@*) ;;
           *) false ;;
